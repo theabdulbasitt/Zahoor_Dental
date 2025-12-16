@@ -1,106 +1,28 @@
-import { useEffect, useRef, useState } from "react";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
 import { MapPin, Phone, Clock } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-const clinics = [
+export const clinics = [
   {
-    id: 1,
-    name: "DentaCare Downtown",
-    address: "123 Dental Street, Suite 100",
-    city: "Los Angeles, CA 90001",
-    phone: "(555) 123-4567",
-    hours: "Mon-Fri: 8am-6pm",
-    coordinates: [-118.2437, 34.0522] as [number, number],
+    id: "downtown",
+    name: 'D.Capital Dental Clinic',
+    address: 'Shop#6, Ground Floor, Jahangir Multiplex, Adjacent to Main gate Qaide Azam International Hospital',
+    city: 'Main Peshawar GT Road, Golramor, Islamabad',
+    phone: '03120158027 / 03244277067',
+    hours: 'Evening: 4PM - 11PM | Morning: 11AM - 3PM (On Call)',
+    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.2536043331997!2d72.9727111!3d33.624665799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df97000196a363%3A0xb706578acbb6dda2!2sD.Capital%20Dental%20Clinic!5e0!3m2!1sen!2s!4v1763560492623!5m2!1sen!2s'
   },
   {
-    id: 2,
-    name: "DentaCare Westside",
-    address: "456 Smile Avenue, Floor 2",
-    city: "Santa Monica, CA 90401",
-    phone: "(555) 987-6543",
-    hours: "Mon-Sat: 9am-7pm",
-    coordinates: [-118.4912, 34.0195] as [number, number],
-  },
+    id: "bayarea",
+    name: 'ZA Dental Clinic',
+    address: '1st Floor, Islamabad Plaza, Main Fateh Jhang Road',
+    city: 'Near Post Office, Ternol, Islamabad',
+    phone: '03120158027',
+    hours: '9AM (Sobh) to 6PM (Sham)',
+    mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.434178226035!2d72.9080329!3d33.645910199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df97f1b0966283%3A0x29d999823ac0b1e1!2sZA%20Dental%20Clinic!5e0!3m2!1sen!2s!4v1763560523348!5m2!1sen!2s'
+  }
 ];
 
 const Locations = () => {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState("");
-  const [isMapLoaded, setIsMapLoaded] = useState(false);
-  const [tokenInput, setTokenInput] = useState("");
-
-  const initializeMap = (token: string) => {
-    if (!mapContainer.current || !token) return;
-
-    mapboxgl.accessToken = token;
-
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: "mapbox://styles/mapbox/dark-v11",
-      center: [-118.35, 34.03],
-      zoom: 10,
-    });
-
-    map.current.addControl(new mapboxgl.NavigationControl(), "top-right");
-
-    map.current.on("load", () => {
-      setIsMapLoaded(true);
-
-      // Add markers for each clinic
-      clinics.forEach((clinic) => {
-        const el = document.createElement("div");
-        el.className = "clinic-marker";
-        el.innerHTML = `
-          <div style="
-            background: hsl(168, 70%, 50%);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            cursor: pointer;
-          ">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="hsl(192, 50%, 8%)" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-          </div>
-        `;
-
-        new mapboxgl.Marker(el)
-          .setLngLat(clinic.coordinates)
-          .setPopup(
-            new mapboxgl.Popup({ offset: 25 }).setHTML(`
-              <div style="padding: 8px;">
-                <strong style="font-size: 14px;">${clinic.name}</strong>
-                <p style="margin: 4px 0 0; font-size: 12px; color: #666;">${clinic.address}</p>
-              </div>
-            `)
-          )
-          .addTo(map.current!);
-      });
-    });
-  };
-
-  const handleTokenSubmit = () => {
-    if (tokenInput.trim()) {
-      setMapboxToken(tokenInput.trim());
-      initializeMap(tokenInput.trim());
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      map.current?.remove();
-    };
-  }, []);
-
   return (
     <section id="locations" className="section-padding grid-bg relative">
       <div className="container mx-auto">
@@ -119,80 +41,66 @@ const Locations = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {/* Clinic Cards */}
-          <div className="space-y-6">
-            {clinics.map((clinic) => (
-              <div
-                key={clinic.id}
-                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all"
-              >
-                <h3 className="font-heading text-xl font-medium mb-4 flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <MapPin className="text-primary" size={16} />
+          {clinics.map((clinic) => (
+            <div
+              key={clinic.id}
+              className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5 flex flex-col h-full"
+            >
+              <h3 className="font-heading text-xl font-medium mb-6 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <MapPin className="text-primary" size={20} />
+                </div>
+                {clinic.name}
+              </h3>
+
+              {/* Map */}
+              <div className="w-full aspect-video rounded-xl overflow-hidden border border-border/50 bg-background mb-6 relative z-10">
+                <iframe
+                  src={clinic.mapUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                />
+              </div>
+
+              <div className="space-y-4 text-sm mt-auto">
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
+                  <MapPin size={18} className="text-primary mt-0.5 min-w-[18px]" />
+                  <div>
+                    <p className="text-foreground font-medium mb-1">Address</p>
+                    <p className="text-muted-foreground">{clinic.address}</p>
+                    <p className="text-muted-foreground mt-0.5">{clinic.city}</p>
                   </div>
-                  {clinic.name}
-                </h3>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-start gap-3">
-                    <MapPin size={16} className="text-muted-foreground mt-0.5" />
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
+                    <Phone size={18} className="text-primary mt-0.5 min-w-[18px]" />
                     <div>
-                      <p className="text-foreground">{clinic.address}</p>
-                      <p className="text-muted-foreground">{clinic.city}</p>
+                      <p className="text-foreground font-medium mb-1">Phone</p>
+                      <p className="text-muted-foreground">{clinic.phone}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Phone size={16} className="text-muted-foreground" />
-                    <p className="text-foreground">{clinic.phone}</p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock size={16} className="text-muted-foreground" />
-                    <p className="text-foreground">{clinic.hours}</p>
+
+                  <div className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30">
+                    <Clock size={18} className="text-primary mt-0.5 min-w-[18px]" />
+                    <div>
+                      <p className="text-foreground font-medium mb-1">Hours</p>
+                      <p className="text-muted-foreground">{clinic.hours}</p>
+                    </div>
                   </div>
                 </div>
-                <Button className="mt-4 rounded-full" size="sm">
-                  Get Directions
+
+                <Button className="w-full rounded-full group-hover:translate-x-1 transition-transform" variant="outline">
+                  Get Directions <MapPin className="ml-2 w-4 h-4" />
                 </Button>
               </div>
-            ))}
-          </div>
-
-          {/* Map */}
-          <div className="relative rounded-2xl overflow-hidden bg-card border border-border min-h-[400px]">
-            {!mapboxToken ? (
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                <MapPin className="text-primary mb-4" size={48} />
-                <h4 className="font-heading text-lg font-medium mb-2">
-                  Enable Map View
-                </h4>
-                <p className="text-muted-foreground text-sm mb-4 max-w-xs">
-                  Enter your Mapbox public token to display the interactive map.
-                  Get one free at{" "}
-                  <a
-                    href="https://mapbox.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary underline"
-                  >
-                    mapbox.com
-                  </a>
-                </p>
-                <div className="flex gap-2 w-full max-w-sm">
-                  <Input
-                    type="text"
-                    placeholder="pk.eyJ1..."
-                    value={tokenInput}
-                    onChange={(e) => setTokenInput(e.target.value)}
-                    className="bg-secondary border-border"
-                  />
-                  <Button onClick={handleTokenSubmit} className="rounded-lg">
-                    Load Map
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <div ref={mapContainer} className="absolute inset-0" />
-            )}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
