@@ -48,13 +48,13 @@ const About = () => {
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full border-2 border-background shadow-md">
-                Dr. Z
+                Dr. Zahoor Ahmad
               </div>
             </div>
 
             <h2 className="font-heading text-3xl md:text-5xl font-medium leading-tight max-w-md">
               Trusted Dental Care{" "}
-              <span className="text-gradient italic block mt-2">Since 2020</span>
+              <span className="text-gradient italic block mt-2">Since 2018</span>
             </h2>
 
             <div className="flex gap-4 mt-8">
