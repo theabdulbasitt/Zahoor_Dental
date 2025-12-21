@@ -1,33 +1,31 @@
-import { Sparkles, Shield, Smile, Syringe, Stethoscope, Heart } from "lucide-react";
-
 const services = [
   {
-    icon: Sparkles,
+    icon: "/icons/whitening.png",
     title: "Teeth Whitening",
     description: "Professional whitening treatments to brighten your smile and remove stubborn stains.",
   },
   {
-    icon: Shield,
+    icon: "/icons/implant.png",
     title: "Dental Implants",
     description: "Permanent, natural-looking tooth replacement solutions for a confident smile.",
   },
   {
-    icon: Smile,
+    icon: "/icons/cosmetic.png",
     title: "Cosmetic Dentistry",
     description: "Transform your smile with veneers, bonding, and smile makeover treatments.",
   },
   {
-    icon: Syringe,
+    icon: "/icons/root-canal.png",
     title: "Root Canal Treatment",
     description: "Painless endodontic care to save your natural teeth and relieve discomfort.",
   },
   {
-    icon: Stethoscope,
+    icon: "/icons/checkup.png",
     title: "General Checkups",
     description: "Comprehensive dental exams and cleanings for optimal oral health.",
   },
   {
-    icon: Heart,
+    icon: "/icons/pediatric.png",
     title: "Pediatric Dentistry",
     description: "Gentle, child-friendly dental care to establish healthy habits early.",
   },
@@ -46,7 +44,7 @@ const Services = () => {
             <span className="text-gradient italic">Care</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            From routine checkups to advanced cosmetic procedures, we offer 
+            From routine checkups to advanced cosmetic procedures, we offer
             a full range of dental services to meet all your oral health needs.
           </p>
         </div>
@@ -59,7 +57,11 @@ const Services = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="text-primary" size={24} />
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="w-8 h-8 object-contain"
+                />
               </div>
               <h3 className="font-heading text-xl font-medium mb-2">{service.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">

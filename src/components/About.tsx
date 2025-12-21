@@ -1,4 +1,4 @@
-import { Award, Clock, Users, MapPin } from "lucide-react";
+import { Award, Clock, Users, Instagram, Youtube, Facebook, MessageCircle, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const features = [
@@ -42,9 +42,9 @@ const About = () => {
             <div className="relative shrink-0">
               <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop"
+                  src="public/profile.jpeg"
                   alt="Dr. Zahoor"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="absolute -bottom-3 -right-3 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full border-2 border-background shadow-md">
@@ -54,8 +54,37 @@ const About = () => {
 
             <h2 className="font-heading text-3xl md:text-5xl font-medium leading-tight max-w-md">
               Trusted Dental Care{" "}
-              <span className="text-gradient italic block mt-2">Since 2009</span>
+              <span className="text-gradient italic block mt-2">Since 2020</span>
             </h2>
+
+            <div className="flex gap-4 mt-8">
+              <a href="https://www.instagram.com/dcapitaldentalclinicofficial" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+                <Instagram size={20} />
+              </a>
+              <a href="https://www.facebook.com/share/1ASr17P2EG" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+                <Facebook size={20} />
+              </a>
+              <a href="https://youtube.com/@d.capitaldentalclinic" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+                <Youtube size={20} />
+              </a>
+              <a href="https://www.tiktok.com/@d.capital.dental" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
+              </a>
+              <a href="https://wa.me/923120158027" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+                <MessageCircle size={20} />
+              </a>
+            </div>
           </div>
 
           {/* Features Grid */}
