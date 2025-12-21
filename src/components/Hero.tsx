@@ -106,7 +106,7 @@ const Hero = () => {
           >
             <div className="text-center">
               <div className="font-heading text-3xl md:text-4xl font-semibold text-primary">
-                <CountUp end={15} suffix="+" duration={3500} />
+                <CountUp end={10} suffix="+" duration={3500} />
               </div>
               <div className="text-muted-foreground text-sm mt-1">Years Experience</div>
             </div>
