@@ -47,7 +47,7 @@ const Locations = () => {
               className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5 flex flex-col h-full"
             >
               <h3 className="font-heading text-xl font-medium mb-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-primary/35 flex items-center justify-center transition-colors">
                   <MapPin className="text-primary" size={20} />
                 </div>
                 {clinic.name}

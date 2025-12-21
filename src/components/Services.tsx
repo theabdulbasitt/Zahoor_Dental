@@ -56,7 +56,7 @@ const Services = () => {
               className="group p-6 md:p-8 rounded-2xl bg-secondary/50 border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-primary/35 flex items-center justify-center mb-4 transition-colors">
                 <img
                   src={service.icon}
                   alt={service.title}

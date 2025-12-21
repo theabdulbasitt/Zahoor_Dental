@@ -43,7 +43,7 @@ const ReviewCard = ({ review }: { review: typeof reviews[0] }) => (
                         <Star key={i} size={12} fill="currentColor" />
                     ))}
                 </div>
-                <span className="px-3 py-0.5 bg-primary/10 text-primary text-[9px] font-bold rounded-full uppercase tracking-widest border border-primary/20">
+                <span className="px-3 py-0.5 bg-primary/20 text-primary text-[9px] font-bold rounded-full uppercase tracking-widest border border-primary/30">
                     {review.highlight}
                 </span>
             </div>
@@ -55,7 +55,7 @@ const ReviewCard = ({ review }: { review: typeof reviews[0] }) => (
         <div>
             <div className="flex gap-2 mb-4 opacity-60 group-hover:opacity-100 transition-opacity duration-500">
                 {review.tags.slice(0, 2).map((tag) => (
-                    <span key={tag} className="text-[9px] font-medium text-primary/70 bg-primary/5 px-2.5 py-0.5 rounded-full border border-primary/10">
+                    <span key={tag} className="text-[9px] font-medium text-primary/80 bg-primary/15 px-2.5 py-0.5 rounded-full border border-primary/25">
                         {tag}
                     </span>
                 ))}

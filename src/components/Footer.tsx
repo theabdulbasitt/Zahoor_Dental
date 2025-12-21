@@ -14,16 +14,16 @@ const Footer = () => {
               Providing exceptional dental care with a gentle touch since 2020.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/dcapitaldentalclinicofficial" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+              <a href="https://www.instagram.com/dcapitaldentalclinicofficial" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
                 <Instagram size={18} />
               </a>
-              <a href="https://www.facebook.com/share/1ASr17P2EG" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+              <a href="https://www.facebook.com/share/1ASr17P2EG" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
                 <Facebook size={18} />
               </a>
-              <a href="https://youtube.com/@d.capitaldentalclinic" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+              <a href="https://youtube.com/@d.capitaldentalclinic" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
                 <Youtube size={18} />
               </a>
-              <a href="https://www.tiktok.com/@d.capital.dental" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+              <a href="https://www.tiktok.com/@d.capital.dental" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
                 <svg
                   width="18"
                   height="18"
@@ -37,7 +37,7 @@ const Footer = () => {
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                 </svg>
               </a>
-              <a href="https://wa.me/923120158027" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
+              <a href="https://wa.me/923120158027" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300">
                 <MessageCircle size={18} />
               </a>
             </div>

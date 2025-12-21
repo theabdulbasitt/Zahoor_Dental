@@ -58,16 +58,16 @@ const About = () => {
             </h2>
 
             <div className="flex gap-4 mt-8">
-              <a href="https://www.instagram.com/dcapitaldentalclinicofficial" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+              <a href="https://www.instagram.com/dcapitaldentalclinicofficial" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                 <Instagram size={20} />
               </a>
-              <a href="https://www.facebook.com/share/1ASr17P2EG" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+              <a href="https://www.facebook.com/share/1ASr17P2EG" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                 <Facebook size={20} />
               </a>
-              <a href="https://youtube.com/@d.capitaldentalclinic" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+              <a href="https://youtube.com/@d.capitaldentalclinic" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                 <Youtube size={20} />
               </a>
-              <a href="https://www.tiktok.com/@d.capital.dental" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+              <a href="https://www.tiktok.com/@d.capital.dental" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                 <svg
                   width="20"
                   height="20"
@@ -81,7 +81,7 @@ const About = () => {
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
                 </svg>
               </a>
-              <a href="https://wa.me/923120158027" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+              <a href="https://wa.me/923120158027" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                 <MessageCircle size={20} />
               </a>
             </div>
@@ -94,7 +94,7 @@ const About = () => {
                 key={feature.title}
                 className="group p-6 rounded-2xl bg-gradient-to-br from-secondary/50 to-background border-2 border-primary/10 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
-                <div className="w-16 h-16 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors flex items-center justify-center mb-5">
+                <div className="w-16 h-16 rounded-xl bg-primary/35 transition-colors flex items-center justify-center mb-5">
                   <feature.icon className="text-primary transition-transform group-hover:scale-110" size={32} />
                 </div>
                 <h3 className="font-heading text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">{feature.title}</h3>
