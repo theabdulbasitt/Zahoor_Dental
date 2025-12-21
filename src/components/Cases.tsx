@@ -149,7 +149,7 @@ const Cases = () => {
                     </div>
                   </div>
                 </DialogTrigger>
-                <DialogContent className="max-w-7xl w-[95vw] rounded-2xl overflow-hidden p-0 gap-0 border-none">
+                <DialogContent className="max-w-7xl w-[95vw] max-h-[90vh] rounded-2xl overflow-y-auto p-0 gap-0 border-none [&>button]:bg-white/20 [&>button]:backdrop-blur-md [&>button]:rounded-full [&>button]:p-1 [&>button]:hover:bg-white/40 [&>button]:transition-all">
                   <div className="grid md:grid-cols-[1.2fr_0.8fr]">
                     <div className="aspect-square md:aspect-auto relative overflow-hidden bg-muted">
                       <img

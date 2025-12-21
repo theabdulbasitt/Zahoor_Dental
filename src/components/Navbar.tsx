@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AppointmentDialog from "./AppointmentDialog";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,12 +35,18 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-              Call Us
-            </Button>
-            <Button size="sm" className="rounded-full px-6">
-              Book Appointment
-            </Button>
+            <a href="tel:03120158027">
+              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+                Call Us
+              </Button>
+            </a>
+            <AppointmentDialog
+              trigger={
+                <Button size="sm" className="rounded-full px-6">
+                  Book Appointment
+                </Button>
+              }
+            />
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -65,9 +72,20 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <Button size="sm" className="rounded-full mt-2">
-                Book Appointment
-              </Button>
+              <div className="flex flex-col gap-3 mt-2">
+                <a href="tel:03120158027" className="w-full">
+                  <Button variant="outline" size="sm" className="w-full rounded-full">
+                    Call Us
+                  </Button>
+                </a>
+                <AppointmentDialog
+                  trigger={
+                    <Button size="sm" className="rounded-full w-full">
+                      Book Appointment
+                    </Button>
+                  }
+                />
+              </div>
             </div>
           </div>
         )}
