@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, MessageSquare, MessageCircle } from "lucide-react";
+import { Mail, MessageSquare, MessageCircle, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
     Dialog,
@@ -55,8 +55,22 @@ Clinic: ${formData.clinic}
 Reason: ${formData.reason}`;
     };
 
+    const validateForm = () => {
+        const form = document.getElementById("appointment-form") as HTMLFormElement;
+        if (form && !form.checkValidity()) {
+            form.reportValidity();
+            return false;
+        }
+        if (!formData.clinic) {
+            alert("Please select a preferred clinic");
+            return false;
+        }
+        return true;
+    };
+
     const handleWhatsApp = (e: React.MouseEvent) => {
         e.preventDefault();
+        if (!validateForm()) return;
         const message = constructMessage();
         const encodedMessage = encodeURIComponent(message);
         const whatsappNumber = "923120158027";
@@ -65,6 +79,7 @@ Reason: ${formData.reason}`;
 
     const handleSMS = (e: React.MouseEvent) => {
         e.preventDefault();
+        if (!validateForm()) return;
         const message = constructMessage();
         const encodedMessage = encodeURIComponent(message);
         const phoneNumber = "923120158027";
@@ -73,11 +88,33 @@ Reason: ${formData.reason}`;
 
     const handleEmail = (e: React.MouseEvent) => {
         e.preventDefault();
+        if (!validateForm()) return;
         const message = constructMessage();
         const encodedMessage = encodeURIComponent(message);
         const emailTo = "iabdulbasit.se@gmail.com";
-        const subject = encodeURIComponent("Booking Request - Smile Sanctuary");
+        const subject = encodeURIComponent("Booking Request - D.Capital Dental Clinic");
         window.open(`mailto:${emailTo}?subject=${subject}&body=${encodedMessage}`, '_blank');
+    };
+
+    const handleShare = async (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+        const message = constructMessage();
+
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Booking Request - D.Capital Dental Clinic',
+                    text: message,
+                });
+            } catch (err) {
+                console.error("Error sharing:", err);
+            }
+        } else {
+            // Fallback for browsers that don't support Web Share API
+            navigator.clipboard.writeText(message);
+            alert("Booking details copied to clipboard! You can now paste and send them via any app.");
+        }
     };
 
     return (
@@ -85,11 +122,14 @@ Reason: ${formData.reason}`;
             <DialogTrigger asChild>
                 {trigger}
             </DialogTrigger>
-            <DialogContent className="max-w-md w-[90%] rounded-2xl overflow-y-auto max-h-[90vh] z-[150]">
+            <DialogContent
+                className="max-w-md w-[90%] rounded-2xl overflow-y-auto max-h-[90vh] z-[150]"
+                onOpenAutoFocus={(e) => e.preventDefault()}
+            >
                 <DialogHeader>
                     <DialogTitle className="font-heading text-2xl text-center mb-4">Book Your Visit</DialogTitle>
                 </DialogHeader>
-                <form className="space-y-4">
+                <form id="appointment-form" className="space-y-4">
                     <div className="space-y-2">
                         <Label htmlFor="name">Full Name</Label>
                         <Input id="name" name="name" placeholder="Enter Name" required value={formData.name} onChange={handleInputChange} />
@@ -118,11 +158,11 @@ Reason: ${formData.reason}`;
 
                     <div className="space-y-2">
                         <Label htmlFor="clinic">Preferred Clinic</Label>
-                        <Select onValueChange={handleSelectChange} required>
+                        <Select value={formData.clinic} onValueChange={handleSelectChange} required>
                             <SelectTrigger>
                                 <SelectValue placeholder="Select a clinic" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent className="z-[200]">
                                 {clinics.map((clinic) => (
                                     <SelectItem key={clinic.id} value={clinic.name}>
                                         {clinic.name}
@@ -142,13 +182,19 @@ Reason: ${formData.reason}`;
                             <MessageCircle className="mr-2" size={20} />
                             Send via WhatsApp
                         </Button>
-                        <Button onClick={handleSMS} className="w-full bg-blue-500 hover:bg-blue-600 text-white shadow-md transition-all hover:scale-[1.02]" size="lg">
-                            <MessageSquare className="mr-2" size={20} />
-                            Send via SMS
-                        </Button>
-                        <Button onClick={handleEmail} className="w-full bg-red-500 hover:bg-red-600 text-white shadow-md transition-all hover:scale-[1.02]" size="lg">
-                            <Mail className="mr-2" size={20} />
-                            Send via Email
+                        <div className="grid grid-cols-2 gap-3">
+                            <Button onClick={handleSMS} className="w-full bg-blue-500 hover:bg-blue-600 text-white shadow-md transition-all hover:scale-[1.02]" size="lg">
+                                <MessageSquare className="mr-2" size={18} />
+                                SMS
+                            </Button>
+                            <Button onClick={handleEmail} className="w-full bg-red-500 hover:bg-red-600 text-white shadow-md transition-all hover:scale-[1.02]" size="lg">
+                                <Mail className="mr-2" size={18} />
+                                Email
+                            </Button>
+                        </div>
+                        <Button onClick={handleShare} variant="outline" className="w-full border-primary/20 hover:bg-primary/5 transition-all hover:scale-[1.02]" size="lg">
+                            <Share2 className="mr-2 text-primary" size={20} />
+                            Other Sending Options
                         </Button>
                     </div>
                     <p className="text-xs text-center text-muted-foreground mt-2">

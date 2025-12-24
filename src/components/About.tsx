@@ -1,7 +1,7 @@
-import { Award, Clock, Users, Instagram, Youtube, Facebook, MessageCircle, MapPin } from "lucide-react";
+import { Award, Clock, Users, Instagram, Youtube, Facebook, MessageCircle, MapPin, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const features = [
+const doctorFeatures = [
   {
     icon: Award,
     title: "Certified Experts",
@@ -57,7 +57,12 @@ const About = () => {
               <span className="text-gradient italic block mt-2">Since 2018</span>
             </h2>
 
+            <p className="text-muted-foreground font-medium">Board-certified Dentist</p>
+
             <div className="flex gap-4 mt-8">
+              <a href="https://www.linkedin.com/in/dr-zahoor-ahmad-a47b5916b/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
+                <Linkedin size={20} />
+              </a>
               <a href="https://www.instagram.com/dcapitaldentalclinicofficial" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                 <Instagram size={20} />
               </a>
@@ -67,20 +72,6 @@ const About = () => {
               <a href="https://youtube.com/@d.capitaldentalclinic" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                 <Youtube size={20} />
               </a>
-              <a href="https://www.tiktok.com/@d.capital.dental" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-                </svg>
-              </a>
               <a href="https://wa.me/923120158027" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm">
                 <MessageCircle size={20} />
               </a>
@@ -89,7 +80,7 @@ const About = () => {
 
           {/* Features Grid */}
           <div className="grid sm:grid-cols-2 gap-6">
-            {features.map((feature, index) => (
+            {doctorFeatures.map((feature, index) => (
               <div
                 key={feature.title}
                 className="group p-6 rounded-2xl bg-gradient-to-br from-secondary/50 to-background border-2 border-primary/10 hover:border-primary/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
@@ -102,6 +93,15 @@ const About = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Developer Info */}
+        <div className="mt-16 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground/60">
+          <p>© 2025 D.Capital Dental Clinic. All rights reserved.</p>
+          <a href="#developer" className="flex items-center gap-2 group transition-colors">
+            <Linkedin size={14} className="text-primary/50 group-hover:text-primary transition-colors" />
+            <span>Designed & Developed by <span className="text-foreground/80 font-medium group-hover:text-primary transition-colors">Abdul Basit</span></span>
+          </a>
         </div>
       </div>
     </section>

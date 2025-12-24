@@ -8,7 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img src="/logo_1.png" alt="Smile Sanctuary" className="h-16 w-auto" />
+              <img src="/logo_1.png" alt="D.Capital Dental Clinic" className="h-16 w-auto" />
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               Providing exceptional dental care with a gentle touch since 2020.
@@ -89,10 +89,17 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-12 pt-8 text-center">
-          <p className="text-muted-foreground text-sm">
+        <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+          <p className="text-muted-foreground text-xs md:text-sm">
             © 2025 D.Capital Dental Clinic & ZA Dental Clinic. All rights reserved.
           </p>
+          <a
+            href="#developer"
+            className="text-muted-foreground/60 text-xs hover:text-primary transition-colors flex items-center gap-1.5 group"
+          >
+            <span className="w-1 h-1 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
+            Designed & Developed by <span className="text-muted-foreground font-medium group-hover:text-primary transition-colors">Abdul Basit</span>
+          </a>
         </div>
       </div>
     </footer>

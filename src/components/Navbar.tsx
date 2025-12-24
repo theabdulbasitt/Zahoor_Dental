@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
-            <img src="/logo_1.png" alt="Smile Sanctuary" className="h-14 w-auto md:h-20" />
+            <img src="/logo_1.png" alt="D.Capital Dental Clinic" className="h-14 w-auto md:h-20" />
           </a>
 
           {/* Desktop Navigation */}

@@ -6,6 +6,7 @@ import Gallery from "@/components/Gallery";
 import Reviews from "@/components/Reviews";
 import About from "@/components/About";
 import Locations from "@/components/Locations";
+import Developer from "@/components/Developer";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <Gallery />
       <Reviews />
       <Locations />
+      <Developer />
       <Footer />
     </div>
   );
