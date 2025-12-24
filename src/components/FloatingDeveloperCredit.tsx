@@ -2,7 +2,7 @@ import { Code2 } from "lucide-react";
 
 const FloatingDeveloperCredit = () => {
     return (
-        <div className="fixed bottom-24 left-4 z-[40] md:bottom-8 md:left-8 flex items-center group pointer-events-none">
+        <div className="fixed bottom-6 left-6 z-[60] md:bottom-8 md:left-8 flex items-center group pointer-events-none">
             <a
                 href="#developer"
                 className="pointer-events-auto flex items-center gap-2 px-3 py-1.5 rounded-full bg-background/40 backdrop-blur-md border border-primary/10 hover:border-primary/40 hover:bg-background/60 transition-all duration-300 shadow-sm"

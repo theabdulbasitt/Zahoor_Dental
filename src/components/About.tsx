@@ -95,14 +95,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Developer Info */}
-        <div className="mt-16 pt-8 border-t border-primary/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground/60">
-          <p>© 2025 D.Capital Dental Clinic. All rights reserved.</p>
-          <a href="#developer" className="flex items-center gap-2 group transition-colors">
-            <Linkedin size={14} className="text-primary/50 group-hover:text-primary transition-colors" />
-            <span>Designed & Developed by <span className="text-foreground/80 font-medium group-hover:text-primary transition-colors">Abdul Basit</span></span>
-          </a>
-        </div>
       </div>
     </section>
   );
