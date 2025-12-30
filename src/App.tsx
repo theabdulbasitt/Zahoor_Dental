@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import WhatsAppButton from "./components/WhatsAppButton";
-import FloatingDeveloperCredit from "./components/FloatingDeveloperCredit";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -16,7 +15,6 @@ const App = () => (
       <Toaster />
       <Sonner />
       <WhatsAppButton />
-      <FloatingDeveloperCredit />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { Phone, Mail, MapPin, Instagram, Youtube, Facebook, MessageCircle } from "lucide-react";
+import DeveloperDialog from "./DeveloperDialog";
 
 const Footer = () => {
+  const [showDeveloperInfo, setShowDeveloperInfo] = useState(false);
+
   return (
     <footer className="bg-secondary/50 border-t border-border">
       <div className="container mx-auto px-4 md:px-8 py-12 md:py-16">
@@ -93,15 +97,16 @@ const Footer = () => {
           <p className="text-muted-foreground text-xs md:text-sm">
             © 2025 D.Capital Dental Clinic & ZA Dental Clinic. All rights reserved.
           </p>
-          <a
-            href="#developer"
+          <button
+            onClick={() => setShowDeveloperInfo(true)}
             className="text-muted-foreground/60 text-xs hover:text-primary transition-colors flex items-center gap-1.5 group"
           >
             <span className="w-1 h-1 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
             Designed & Developed by <span className="text-muted-foreground font-medium group-hover:text-primary transition-colors">Abdul Basit</span>
-          </a>
+          </button>
         </div>
       </div>
+      <DeveloperDialog open={showDeveloperInfo} onOpenChange={setShowDeveloperInfo} />
     </footer>
   );
 };
